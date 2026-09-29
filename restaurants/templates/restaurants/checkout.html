@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Confirm Your Order</h2>
+<table class="table bg-white">
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.menu_item.name }} × {{ item.quantity }}</td>
+            <td>₹{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>Total: ₹{{ cart.get_total_price }}</h4>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Place Order</button>
+</form>
+{% endblock %}

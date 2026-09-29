@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Orders</h2>
+{% for order in orders %}
+<div class="card mb-2 shadow-sm">
+    <div class="card-body d-flex justify-content-between">
+        <div>
+            <strong>Order #{{ order.id }}</strong> — {{ order.restaurant.name }}
+            <br><small class="text-muted">{{ order.created_at }}</small>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-info">{{ order.status }}</span>
+            <div>₹{{ order.total }}</div>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p class="text-muted">You haven't placed any orders yet.</p>
+{% endfor %}
+{% endblock %}

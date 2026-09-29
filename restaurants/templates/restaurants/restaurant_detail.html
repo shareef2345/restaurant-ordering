@@ -12,8 +12,12 @@
                 <div>
                     <h5 class="card-title mb-1">{{ item.name }}</h5>
                     <p class="card-text text-muted mb-0">{{ item.description }}</p>
+                    <span class="badge bg-success">₹{{ item.price }}</span>
                 </div>
-                <span class="badge bg-success fs-6">₹{{ item.price }}</span>
+                <form method="post" action="{% url 'add_to_cart' item.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>

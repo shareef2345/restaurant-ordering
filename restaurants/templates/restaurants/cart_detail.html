@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Cart</h2>
+{% if cart|length == 0 %}
+    <p class="text-muted">Your cart is empty.</p>
+    <a href="{% url 'restaurant_list' %}" class="btn btn-primary">Browse Restaurants</a>
+{% else %}
+<table class="table bg-white">
+    <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th><th></th></tr></thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.menu_item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.price }}</td>
+            <td>₹{{ item.total_price }}</td>
+            <td>
+                <a href="{% url 'remove_from_cart' item.menu_item.id %}" class="btn btn-sm btn-outline-danger">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>Total: ₹{{ cart.get_total_price }}</h4>
+<a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+{% endif %}
+{% endblock %}
