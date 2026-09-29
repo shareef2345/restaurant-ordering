@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{ restaurant.name }} — Menu</h2>
+    <a href="{% url 'menu_item_create' restaurant.pk %}" class="btn btn-primary">+ Add Item</a>
+</div>
+<table class="table bg-white">
+    <thead><tr><th>Name</th><th>Price</th><th>Available</th><th></th></tr></thead>
+    <tbody>
+        {% for item in menu_items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>₹{{ item.price }}</td>
+            <td>{% if item.is_available %}Yes{% else %}No{% endif %}</td>
+            <td>
+                <a href="{% url 'menu_item_edit' restaurant.pk item.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="{% url 'menu_item_delete' restaurant.pk item.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-muted">No menu items yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'owner_dashboard' %}" class="btn btn-link">&larr; Back to Dashboard</a>
+{% endblock %}

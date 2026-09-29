@@ -52,3 +52,12 @@ class Cart:
 
     def get_total_price(self):
         return sum(Decimal(item["price"]) * item["quantity"] for item in self.cart.values())
+
+    def decrease(self, menu_item_id):
+        item_id = str(menu_item_id)
+        if item_id in self.cart:
+            if self.cart[item_id]["quantity"] > 1:
+                self.cart[item_id]["quantity"] -= 1
+            else:
+                del self.cart[item_id]
+            self.save()

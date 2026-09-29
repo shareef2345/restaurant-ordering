@@ -10,8 +10,11 @@
     <tbody>
         {% for item in cart %}
         <tr>
-            <td>{{ item.menu_item.name }}</td>
-            <td>{{ item.quantity }}</td>
+            <td>
+                <a href="{% url 'decrease_cart_item' item.menu_item.id %}" class="btn btn-sm btn-outline-secondary">−</a>
+                {{ item.quantity }}
+                <a href="{% url 'add_to_cart' item.menu_item.id %}" class="btn btn-sm btn-outline-secondary">+</a>
+            </td>
             <td>₹{{ item.price }}</td>
             <td>₹{{ item.total_price }}</td>
             <td>
