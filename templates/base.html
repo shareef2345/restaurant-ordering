@@ -11,6 +11,7 @@
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">🍽️ Restaurant Ordering</a>
             <div>
+                <a href="{% url 'restaurant_list' %}" class="btn btn-outline-light btn-sm me-2">Browse Restaurants</a>
                 {% if user.is_authenticated %}
                     <span class="text-light me-3">Hi, {{ user.username }}</span>
                     <a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm">Logout</a>
