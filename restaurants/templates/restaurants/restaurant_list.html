@@ -17,6 +17,7 @@
     {% for restaurant in restaurants %}
     <div class="col">
         <div class="card h-100 shadow-sm">
+            <img src="{{ restaurant.get_image_url }}" class="card-img-top" style="height: 180px; object-fit: cover; border-radius: 12px 12px 0 0;" alt="{{ restaurant.name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ restaurant.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ restaurant.cuisine }} · {{ restaurant.city }}</h6>

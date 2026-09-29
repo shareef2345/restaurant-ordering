@@ -1,0 +1,127 @@
+:root {
+    --primary: #ff5722;
+    --primary-dark: #e64a19;
+    --dark: #1c1c1c;
+    --light-bg: #faf8f5;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+}
+
+.navbar {
+    background-color: var(--dark) !important;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--primary) !important;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-radius: 16px;
+    padding: 60px 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-weight: 700;
+}
+
+footer {
+    background-color: var(--dark);
+    color: #ccc;
+    padding: 24px 0;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.auth-wrapper {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 40px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.auth-card label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: block;
+}
+
+.auth-card input {
+    border-radius: 8px !important;
+    padding: 10px 12px !important;
+}
+
+.auth-card a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+.hero h1 {
+    font-size: 2.6rem;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    color: var(--primary);
+}

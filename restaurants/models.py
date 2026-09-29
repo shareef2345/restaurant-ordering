@@ -11,7 +11,20 @@ class Restaurant(models.Model):
     city = models.CharField(max_length=50)
     is_open = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    CUISINE_IMAGES = {
+    "italian": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=500",
+    "chinese": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500",
+    "indian": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500",
+    "mexican": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500",
+    "dosa": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500",
+    "pizza": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+    "burger": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500",
+    }
+    DEFAULT_IMAGE = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500"
 
+    def get_image_url(self):
+        return self.CUISINE_IMAGES.get(self.cuisine.strip().lower(), self.DEFAULT_IMAGE)
+    
     def __str__(self):
         return self.name
 
@@ -58,3 +71,4 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.menu_item.name}"
+

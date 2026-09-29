@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-5">
-        <div class="card shadow-sm p-4">
-            <h3 class="mb-3">Log In</h3>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary w-100">Log In</button>
-            </form>
-            <p class="mt-3 mb-0">Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+<div class="auth-wrapper">
+    <div class="auth-card shadow">
+        <div class="text-center mb-4">
+            <i class="bi bi-unlock auth-icon"></i>
+            <h3 class="mt-2 mb-0">Welcome Back</h3>
+            <p class="text-muted small">Log in to continue ordering</p>
         </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100 py-2 mt-2">
+                <i class="bi bi-box-arrow-in-right"></i> Log In
+            </button>
+        </form>
+        <p class="mt-3 mb-0 text-center">
+            Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+        </p>
     </div>
 </div>
 {% endblock %}
